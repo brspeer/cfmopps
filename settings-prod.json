@@ -1,0 +1,11 @@
+{
+  "galaxy.meteor.com": { 
+     "env": { 
+       "ROOT_URL" : "http://www.cfmopps.com",
+       "MONGO_URL": "mongodb://cfmgalaxy:california1830@ds015810-a0.mlab.com:15810,ds015810-a1.mlab.com:15810/cfmopps?replicaSet=rs-ds015810" 
+     } 
+   },
+   "public": {
+   		"isProduction": true
+   }
+}

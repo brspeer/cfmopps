@@ -1,0 +1,84 @@
+<template name="usersForm">
+  <form class="ui form">
+    <h4>
+      Please select type of account
+    </h4>
+    <div class="field">
+      <div class="ui checkbox" id="miss">
+        <input type="checkbox" id="missionary" />
+        <label>Missionary</label>
+      </div>
+    </div>
+    <div class="field">
+      <div class="ui checkbox" id="off">
+        <input type="checkbox" id="office" />
+        <label>Office</label>
+      </div>
+    </div>
+    <div class="field">
+      <div class="ui checkbox" id="adm">
+        <input type="checkbox" id="admin" />
+        <label>Admin</label>
+      </div>
+    </div>
+    <div class="field">
+      <div class="ui checkbox" id="stk">
+        <input type="checkbox" id="stakePresident" />
+        <label>Stake President</label>
+      </div>
+    </div>
+    <div class="field">
+      <div class="ui checkbox" id="wml">
+        <input type="checkbox" id="wardMissionLeader" />
+        <label>Ward Mission Leader</label>
+      </div>
+    </div>
+    {{#if orFive isMissAcct isAdmAcct isOffAcct isStkAcct isWMLAcct}}
+    <div class="field"><label>Username</label>
+    <input type="text" id="user name" placeholder="Username"/>
+    </div>
+    {{/if}}
+    {{#if isMissAcct}}
+    <div class="field">
+      <label>Area</label>
+      <select class="ui search selection dropdown" id="area" placeholder="Please Select Area">
+          {{#each areas}}
+            <option value="{{name}}">{{name}}</option>
+          {{/each}}
+      </select>
+    </div>
+    {{/if}}
+    {{#if or isStkAcct isWMLAcct}}
+      <div class="field">
+        <label>Stake</label>
+        <select class="ui search selection dropdown" id="stake" placeholder="Please Select Stake">
+          {{#each zones}}
+            <option value="{{name}}}">{{name}}</option>
+          {{/each}}
+        </select>
+      </div>
+    {{/if}}
+    {{#if isWMLAcct}}
+      <div class="field">
+        <label>Unit</label>
+        <select class="ui search selection dropdown" id="unit" placeholder="Please Select Unit">
+          {{#each units}}
+            <option value="{{name}}}">{{name}}</option>
+          {{/each}}
+        </select>
+      </div>
+    {{/if}}
+    {{#if orFive isMissAcct isAdmAcct isOffAcct isStkAcct isWMLAcct}}
+    <div class="field"><label>Password</label>
+      <input type="password" id="password" placeholder="Password" />
+    </div>
+    <div class="field"><label>Password Confirmation</label>
+      <input type="password" id="confirm password" placeholder="Password (Again)" />
+    </div>
+    <button class="ui positive button addUser" href="#">
+      Add User
+    </button>
+    {{/if}}
+    <a class="cancel" href="#">Cancel</a>
+  </form>
+</template>

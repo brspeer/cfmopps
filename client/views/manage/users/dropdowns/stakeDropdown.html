@@ -1,0 +1,11 @@
+<template name="stakeDropdown">    
+<div class="field">
+        <label>Stake</label>
+        <select class="ui search selection dropdown" id="stake" placeholder="Please Select Stake">
+          <option value="">Stake</option>
+          {{#each zones}}
+            <option value="{{name}}}">{{name}}</option>
+          {{/each}}
+        </select>
+      </div>
+</template>

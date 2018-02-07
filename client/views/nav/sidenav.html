@@ -1,0 +1,56 @@
+<template name="sidenav">
+    <div class="ui sidebar inverted vertical menu">
+     <a class="sidenav header item">
+      California Fresno Mission
+    </a>
+    {{#unless isInRole 'stakePresident'}}
+    {{#if isActiveRoute 'login'}}
+    <a class="item active" href="/">
+      Dashboard
+    </a>
+    {{/if}}
+    {{#if isNotActiveRoute 'login'}}
+    <a class="item" href="/">Dashboard</a> 
+    {{/if}}
+    {{#if isActiveRoute 'weeklyReporting'}}
+    <a class="item active" href="/weeklyReporting">Weekly Reporting</a> 
+    {{else}}
+    <a class="item" href="/weeklyReporting">Weekly Reporting</a> 
+    {{/if}}
+    {{#if isActiveRoute 'monthlyReporting'}}
+    <a class="item active" href="/monthlyReporting">Monthly Reporting</a>
+    {{else}}
+    <a class="item" href="/monthlyReporting">Monthly Reporting</a> 
+    {{/if}}
+    {{#if isActiveRoute 'progressRecord'}}
+    <a class="item active" href="/progressRecord">Progress Record</a>
+    {{else}}
+    <a class="item" href="/progressRecord">Progress Record</a> 
+    {{/if}}
+    {{#if isInRole 'office, zoneLeader'}}
+      {{#if isActiveRoute 'stakeCorrelation'}}
+    <a class="item active" href="/stakeCorrelation">Stake Correlation</a> 
+    {{else}}
+    <a class="item" href="/stakeCorrelation">Stake Correlation</a> 
+    {{/if}}
+      {{#if isActiveRoute 'conference'}}
+      <a class="item active" href="/conference">Conference Call</a>
+      {{else}}
+      <a class="item" href="/conference">Conference Call</a>
+      {{/if}}
+      {{/if}}
+      {{/unless}}
+      {{#if isInRole 'stakePresident'}}
+      {{#if isActiveRoute 'progressRecord'}}
+    <a class="item active" href="/progressRecord">Progress Record</a>
+    {{else}}
+    <a class="item" href="/progressRecord">Progress Record</a> 
+    {{/if}}
+    {{#if isActiveRoute 'stakeCorrelation'}}
+    <a class="item active" href="/stakeCorrelation">Stake Correlation</a> 
+    {{else}}
+    <a class="item" href="/stakeCorrelation">Stake Correlation</a> 
+    {{/if}}
+      {{/if}}
+  </div>
+</template>

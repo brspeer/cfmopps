@@ -1,0 +1,40 @@
+<template name="overview">
+<div class="ui hidden divider"></div>
+     <table class="ui fluid celled padded table">
+  <thead>
+    <tr>
+    <th class="single line">Stake</th>
+    <th>Baptized/Confirmed</th>
+    <th>W/ Date</th>
+    <th>@ SAC</th>
+    <th>Member Present</th>
+    <th>New Investigators</th>
+    <th>Member Homes</th>
+  </tr></thead>
+  <tbody>
+    <tr>
+      <td>
+        {{stake.name}}
+      </td>
+      <td class="single line">
+        {{stakeBap}}/{{stakeConf}}
+      </td>
+      <td>
+        {{stakeWD}}
+      </td>
+      <td>
+        {{stakeAtSac}}
+      </td>
+      <td>
+        {{stakeMP}}
+      </td>
+      <td>
+        {{stakeNI}}
+      </td>
+      <td>
+        {{stakeMH}}
+      </td>
+    </tr>
+  </tbody>
+</table>
+</template>

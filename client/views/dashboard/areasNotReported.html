@@ -1,0 +1,22 @@
+<template name="notReported">
+  <div class="ui container">
+  <button class="back ui basic button" style="background: white !important;">Back To Dashboard</button>
+  <div class="ui segment">
+  <h2 class="ui dividing header">
+    Areas Not Reported
+  </h2>
+  
+  <div class="ui relaxed divided list">
+    {{#each notReported}}
+  <div class="item">
+    <div class="content">
+      <div class="description">{{this}}</div>
+    </div>
+  </div>
+    {{/each}}
+    </div>
+    </div>
+    <div class="ui hidden divider">
+    </div>
+  </div>
+</template>

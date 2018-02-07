@@ -1,0 +1,44 @@
+<template name="stakes">
+  <div class="ui container">
+    <div class="ui segment">
+<h2 class="ui dividing header">Select A Stake To Manage Units</h2>
+    {{#if isCreatingStake}}
+      <div class="ui segment">
+        <form class="ui form">
+        <div class="field">
+          <label>Name</label>
+          <input type="text" id="stakeName" placeholder="Enter Stake Name"/>
+        </div>
+        <button class="ui positive button addZone" href="#">
+          Add Stake
+        </button>
+        <button class="ui button cancel" href="#">
+        Cancel
+        </button>
+      </form>
+      </div>
+    {{else}}
+      <button class="ui basic button" href="#">+ Add Stake</button>
+    {{/if}}
+      <div class="ui hidden divider"></div>
+    
+    <table class="ui very basic table">
+      <thead>
+        <tr>
+          <th data-field="id">Stake</th>
+          <th data-field="id" class="right aligned"></th>
+        </tr>
+      </thead>
+
+      <tbody>
+        {{#each stakes}}
+        <tr>
+          <td><u><a class="stake" href="#">{{name}}</a></u></td>
+          <td class="right aligned"><a class="delete right aligned" href="#">Delete</a></td>
+        </tr>
+        {{/each}}
+      </tbody>
+    </table>
+  </div>
+  </div>
+</template>

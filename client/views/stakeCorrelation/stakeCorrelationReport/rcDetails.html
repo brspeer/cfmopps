@@ -1,0 +1,67 @@
+<template name="rcDetails">
+    <div class="ui hidden divider"></div>
+  <div class="ui three column doubling grid container">
+    {{#each rcDetails2}}
+  <div class="column">
+     <table class="ui fluid celled padded table">
+    <thead>
+      <tr>
+        <th>{{name}}</th>
+        <th></th>
+        <th></th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        
+      </tr>
+      <tr>
+        <td>total number of recent converts</td>
+        <td colspan="2" class="center aligned"><strong>{{total}}</strong></td>
+      </tr>
+      <tr>
+        <td># that attended church this month</td>
+        <td><strong>{{church}}</strong></td>
+        <td><strong>{{churchPercent}}%</strong></td>
+      </tr>
+      <tr>
+        <td># that have completed NML's</td>
+        <td><strong>{{nmlCompleted}}</strong></td>
+        <td><strong>{{nmlCompletedPercent}}%</strong></td>
+      </tr>
+      <tr>
+        <td># that have callings (18 or older)</td>
+        <td><strong>{{calling}}</strong> out of <strong>{{callingOutOf}}</strong></td>
+        <td><strong>{{callingPercent}}%</strong></td>
+      </tr>
+      <tr>
+        <td># with home or visiting teachers assigned</td>
+        <td><strong>{{teacher}}</strong></td>
+        <td><strong>{{teacherPercent}}%</strong></td>
+      </tr>
+      <tr>
+        <td># with the priesthood (12 or older)</td>
+        <td><strong>{{priesthood}}</strong> out of <strong>{{priesthoodOutOf}}</strong></td>
+        <td><strong>{{priesthoodPercent}}%</strong></td>
+      </tr>
+      <tr>
+        <td># that have attended temple</td>
+        <td><strong>{{temple}}</strong> out of <strong>{{templeOutOf}}</strong></td>
+        <td><strong>{{templePercent}}%</strong></td>
+      </tr>
+      <tr>
+        <td># that have done family history</td>
+        <td><strong>{{fh}}</strong></td>
+        <td><strong>{{fhPercent}}%</strong></td>
+      </tr>
+      <tr>
+        <td># that have progressed in NML's (if not completed)</td>
+        <td><strong>{{progressed}}</strong> out of <strong>{{progressedOutOf}}</strong></td>
+        <td><strong>{{progressedPercent}}%</strong></td>
+      </tr>
+    </tbody>
+  </table>
+  </div>
+    {{/each}}
+</div>
+</template>

@@ -1,0 +1,11 @@
+<template name="areaDropdown">    
+<div class="field">
+      <label>Area</label>
+      <select class="ui search selection dropdown" id="area" placeholder="Please Select Area">
+        <option value="">Area</option>
+          {{#each areas}}
+            <option value="{{name}}">{{name}}</option>
+          {{/each}}
+      </select>
+    </div>
+</template>

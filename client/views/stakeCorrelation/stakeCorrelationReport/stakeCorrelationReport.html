@@ -1,0 +1,38 @@
+<template name="stakeCorrelationReport">
+  <div class="ui secondary pointing menu">
+  {{#if isInRole 'zoneLeader, stakePresident, office'}}
+    <a class="item sc overview active">
+    Overview
+  </a>
+    {{/if}}
+    {{#if isInRole 'ward'}}
+    <a class="item sc keyIndicators active">
+      Key Indicators
+    </a>
+    {{else}}
+  <a class="item sc keyIndicators">
+    Key Indicators
+  </a>
+    {{/if}}
+  <a class="item sc saw">
+    Strengths & Weaknesses
+  </a>
+  <a class="item sc rcDetails">
+    Recent Convert Details
+  </a>
+</div>
+  {{#if isInRole 'zoneLeader, stakePresident, office'}}
+{{#if oview}}
+    {{> overview}}
+{{/if}}
+  {{/if}}
+{{#if keyIndicators}}
+    {{> _keyIndicators}}
+{{/if}}
+{{#if _saw}}
+  {{> saw}}
+{{/if}}
+{{#if _rcDetails}}
+  {{> rcDetails}}
+{{/if}}
+</template>

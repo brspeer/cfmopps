@@ -1,0 +1,79 @@
+<template name="saw">
+  <div class="ui hidden divider"></div>
+  <table class="ui fluid celled padded table">
+  <thead>
+    <tr>
+    <th class="single line">Unit Name</th>
+    <th>Strengths</th>
+    <th>Weaknesses</th>
+    <th>Suggested Solutions</th>
+    {{#if isInRole 'zoneLeader'}}<th class="right aligned">{{#if editing}}<button class="ui icon positive button"><i class="checkmark icon"></i></button>{{else}}<button class="ui icon primary button"><i class="write icon"></i></button>{{/if}}</th>{{/if}}
+  </tr></thead>
+  <tbody>
+    {{#each monthlykis}}
+    <tr>
+      <td>
+        {{this.unitName}}
+      </td>
+      {{#if isInRole 'zoneLeader'}}
+      {{#if editing}}
+      <td>
+      <div class="ui form">
+          <div class="field">
+    <textarea id="{{this._id}}strength" value="{{this.strength}}"></textarea>
+  </div>
+      </div>
+    </td>
+      {{else}}
+      <td>
+        {{this.strength}}
+      </td>
+      {{/if}}
+      {{else}}
+      <td>
+        {{this.strength}}
+      </td>
+      {{/if}}
+      {{#if isInRole 'zoneLeader'}}
+      {{#if editing}}
+      <td>
+      <div class="ui form">
+          <div class="field">
+    <textarea id="{{this._id}}weakness" value="{{this.weakness}}"></textarea>
+  </div>
+      </div>
+    </td>
+      {{else}}
+      <td>
+        {{this.weakness}}
+      </td>
+      {{/if}}
+      {{else}}
+      <td>
+        {{this.weakness}}
+      </td>
+      {{/if}}
+      {{#if isInRole 'zoneLeader'}}
+      {{#if editing}}
+      <td colspan="2">
+      <div class="ui form">
+          <div class="field">
+    <textarea id="{{this._id}}solution" value="{{this.solution}}"></textarea>
+  </div>
+      </div>
+    </td>
+      {{else}}
+      <td colspan="2">
+        {{this.solution}}
+      </td>
+      {{/if}}
+      {{else}}
+      <td>
+        {{this.solution}}
+      </td>
+      {{/if}}
+    </tr>
+    {{/each}}
+  </tbody>
+</table>
+</template>

@@ -1,0 +1,18 @@
+<template name="zoneDash">
+  {{> kiTrends}}
+  {{#if isInRole 'zoneLeader, office'}}
+  {{> kiTable}}
+  {{/if}}
+  <div class="ui hidden divider"></div>
+    <div class="ui two column doubling stackable grid">
+  <div class="column">
+      {{> funnel}}
+  </div>
+  <div class="column">
+      {{> maynesBar}}
+  </div>
+  <!--<div class="column">
+    {{> unitGauge}}
+  </div>-->
+</div>
+</template>

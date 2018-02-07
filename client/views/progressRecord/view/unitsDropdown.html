@@ -1,0 +1,12 @@
+<template name="unitsDropdown">
+<div class="ui selection dropdown" id="selectUnit">
+      <input type="hidden">
+      <i class="dropdown icon"></i>
+      <div class="default text">Select Unit</div>
+      <div class="menu">
+        {{#each units}}
+        <div class="item" data-value="{{name}}">{{name}}</div>
+        {{/each}}
+      </div>
+    </div>
+</template>

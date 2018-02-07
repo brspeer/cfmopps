@@ -1,0 +1,46 @@
+<template name="zones">
+  <div class="ui container">
+    <div class="ui segment">
+<h2 class="ui dividing header">Select A Zone To Manage Areas</h2>
+       {{#if isCreatingZone}}
+      <div class="ui segment">
+        <form class="ui form">
+        <div class="field">
+          <label>Name</label>
+          <input type="text" id="zoneName" placeholder="Enter Zone Name"/>
+        </div>
+        <button class="ui positive button addZone" href="#">
+          Add Zone
+        </button>
+        <button class="ui button cancel" href="#">
+        Cancel
+        </button>
+      </form>
+      </div>
+    {{else}}
+      <button class="ui basic button">+ Add Zone</button>
+    {{/if}}
+      <div class="ui hidden divider"></div>
+    
+    <table class="ui very basic table">
+      <thead>
+        <tr>
+          <th data-field="id">Zone</th>
+          <th data-field="id">Zone Leader</th>
+          <th data-field="id" class="right aligned"></th>
+        </tr>
+      </thead>
+
+      <tbody>
+        {{#each zones}}
+        <tr>
+          <td><u><a class="zone" href="#">{{name}}</a></u></td>
+          <td>{{leaderArea}}</td>
+          <td class="right aligned"><a class="delete right aligned" href="#">Delete</a></td>
+        </tr>
+        {{/each}}
+      </tbody>
+    </table>
+  </div>
+  </div>
+</template>

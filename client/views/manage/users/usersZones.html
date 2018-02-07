@@ -1,0 +1,26 @@
+<template name="usersZones">
+  <div class="ui container">
+    <div class="ui segment">
+<h2 class="ui dividing header">Select A Zone To Manage Users</h2>
+      <div class="ui hidden divider"></div>
+    
+    <table class="ui very basic table">
+      <thead>
+        <tr>
+          <th data-field="id">Zone</th>
+          <th data-field="id" class="right aligned"></th>
+        </tr>
+      </thead>
+
+      <tbody>
+        {{#each zones}}
+        <tr>
+          <td><u><a class="zone" href="#">{{name}}</a></u></td>
+          <td></td>
+        </tr>
+        {{/each}}
+      </tbody>
+    </table>
+  </div>
+  </div>
+</template>

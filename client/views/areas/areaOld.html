@@ -1,0 +1,25 @@
+<template name="areaOld">
+    {{#if isEditingArea}}
+      <form class="form-edit">
+        <label>Name:</label>
+        <div class="ui mini input">
+          <input name="name" type="text" value="{{name}}">
+        </div>
+        <label>District:</label>
+        <div class="ui mini input">
+          <input name="district" type="text" value="{{district}}">
+        </div>
+        <label>Zone:</label>
+        <div class="ui mini input">
+          <input name="zone" type="text" value="{{zone}}">
+        </div>
+        <button type="submit" class="ui green mini button">Save</button>
+        <a class="cancel" href="#">Cancel</a>
+      </form>
+    {{else}}
+      <td>{{name}}</td>
+      <td>{{district}}</td>
+      <td>{{zone}}</td>
+      <td class="right aligned"><a class="edit" href="#">Edit</a> / <a class="delete" href="#">Delete</a></td>
+    {{/if}}
+</template>

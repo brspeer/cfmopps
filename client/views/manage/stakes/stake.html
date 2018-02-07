@@ -1,0 +1,57 @@
+<template name="stake">
+  <div class="ui container">
+    <button class="back ui basic button" style="background: white !important;">Back To Stakes</button>
+    <div class="ui segment" id="pointless">
+    <h2 class="ui dividing header">The {{currentStake}} Stake</h2>
+      <div>
+      {{#if isCreatingUnit}}
+      {{> unitsForm}}
+    {{else}}
+      <button class="ui basic button" id="addUnit">+ Add Unit</button>
+    {{/if}}
+    {{#if isDeleting}}
+      {{> mergeUnits}}
+    {{/if}}
+              <div style="text-align: right;">
+                <label><h4 class="ui header"><strong>Zones:</strong></h4></label>
+      <select name="zones" multiple="" class="zones ui dropdown" id="zonesServed">
+        <option value="">Select All Zones that Serve this Stake</option>
+        {{#each zones}}
+        <option value="{{this._id}}">{{this.name}}</option>
+        {{/each}}
+        </select>
+    </div>
+      </div>
+      <div class="ui hidden divider"></div>
+       <table class="ui very basic table">
+      <thead>
+        <tr>
+          <th>Unit</th>
+          <th class="right aligned">Edit / Delete</th>
+        </tr>
+      </thead>
+      <tbody>
+          {{#each units}}
+            <tr>
+              <td>{{#if isEditingUnit}}
+                    <form class="areaEdit">
+                      <label>Rename Unit:</label>
+                      <div class="ui mini input">
+                        <input name="area" type="text" value="{{name}}" id="unitName">
+                      </div>
+                      <button type="submit" class="ui green mini button" id="update" name="{{_id}}">Save</button>
+                      <a class="cancel" href="#">Cancel</a>
+                    </form>
+             {{else}}
+                {{name}}{{/if}}</td>
+              <td class="right aligned"><a class="edit" href="#">Edit</a> / <a class="delete" href="#">Delete</a></td>
+            </tr>
+          {{/each}}        
+      </tbody>
+    </table>
+    <div class="ui hidden divider"></div>
+  </div>
+  </div>
+  <div class="ui hidden divider"></div>
+  
+</template>

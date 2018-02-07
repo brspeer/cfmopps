@@ -1,0 +1,117 @@
+<template name="dashboard">
+  <div class="ui segment">
+    {{#if isInRole 'office'}}
+    
+    <!--<div class="ui right floated small statistic">
+  <div class="value" style="cursor: pointer">
+    {{numberReported}}
+  </div>
+  <div class="label">
+    of {{numberAreas}} Areas Reported
+  </div>
+</div>-->
+    
+    <div class="ui selection dropdown" id="drilldownZone">
+      <input type="hidden">
+      <i class="dropdown icon"></i>
+      <div class="default text">Select Zone</div>
+      <div class="menu">
+        {{#each zones}}
+        <div class="item" data-value="{{_id}}">{{name}}</div>
+        {{/each}}
+      </div>
+    </div>
+    
+      <div class="ui selection dropdown" id="drilldownDistrict">
+      <input type="hidden">
+      <i class="dropdown icon"></i>
+      <div class="default text">Select District</div>
+      <div class="menu">
+        {{#each districtsAP}}
+        <div class="item" data-value="{{_id}}">{{name}}</div>
+        {{/each}}
+      </div>
+    </div>
+    <div class="ui selection dropdown" id="drilldownArea">
+      <input type="hidden">
+      <i class="dropdown icon"></i>
+      <div class="default text">Select Area</div>
+      <div class="menu">
+        {{#each areasAP}}
+        <div class="item" data-value="{{_id}}">{{name}}</div>
+        {{/each}}
+      </div>
+    </div>
+    
+    <div class="ui right floated button">
+      Reset
+    </div>
+    {{/if}}
+    {{#if isInRole 'zoneLeader'}}
+    <!--<div class="ui right floated small statistic">
+  <div class="value" style="cursor: pointer">
+    {{numberReported}}
+  </div>
+  <div class="label">
+    of {{numberAreas}} Areas Reported
+  </div>
+</div>-->
+    
+      <div class="ui selection dropdown" id="drilldownDistrict">
+      <input type="hidden">
+      <i class="dropdown icon"></i>
+      <div class="default text">Select District</div>
+      <div class="menu">
+        {{#each districtsZL}}
+        <div class="item" data-value="{{_id}}">{{name}}</div>
+        {{/each}}
+      </div>
+    </div>
+    <div class="ui selection dropdown" id="drilldownArea">
+      <input type="hidden">
+      <i class="dropdown icon"></i>
+      <div class="default text">Select Area</div>
+      <div class="menu">
+        {{#each areasZL}}
+        <div class="item" data-value="{{_id}}">{{name}}</div>
+        {{/each}}
+      </div>
+    </div>
+    <div class="ui right floated button">
+      Reset
+    </div>
+    
+    {{/if}}
+    
+    {{#if isInRole 'districtLeader'}}
+    <div class="district ui button">
+      View District
+    </div>
+    <div class="ui selection dropdown" id="drilldownArea">
+      <input type="hidden">
+      <i class="dropdown icon"></i>
+      <div class="default text">Select Area</div>
+      <div class="menu">
+        {{#each areasDL}}
+        <div class="item" data-value="{{_id}}">
+          {{name}}
+        </div>
+        {{/each}}
+      </div>
+    </div>
+    <div class="ui right floated button">
+      Reset
+    </div>
+    {{/if}}
+    
+    <!--<div class="area ui button">
+      View Area
+    </div>
+    <div class="ui right floated button">
+      Reset
+    </div>-->
+    {{> zoneDash}}
+  </div>
+  <div class="ui hidden divider"></div>
+  
+</template>

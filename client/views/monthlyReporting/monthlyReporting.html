@@ -1,0 +1,199 @@
+<template name="monthlyReporting">
+  <div class="ui container">
+    <div class="ui segment">
+      
+    <h2 class="ui dividing header">Monthly Key Indicator Entry</h2>
+     <h4>
+       Report For: {{currentArea}} 
+      </h4>
+      <h4 class="right aligned">
+        Reporting Month: {{date}}
+      </h4>
+      <div class="ui hidden divider"></div>
+      
+      
+      <!-- monthlyReporting Table -->
+   <form class="ui form" id="kiForm">
+      <table class="ui very basic table" id="t">
+        <thead>
+          <tr>
+            <th>Key Indicators</th>
+            {{#each unitsInArea}}
+              <th>{{this}}</th>
+            {{/each}}
+          </tr>
+          </thead>
+        <tbody>          
+          <tr>
+            <td>Investigators Baptized</td>
+            {{#each unitsInArea}}
+                  <td class="center aligned"> 
+                    <div class="four wide field">
+                      <input class="center aligned" id="bap{{this}}" type="number" min="0">
+                    </div>
+                  </td>
+            {{/each}}
+          </tr>
+          
+          <tr>
+            <td>Investigators Confirmed</td>
+            {{#each unitsInArea}}
+                  <td class="center aligned"> 
+                    <div class="four wide field">
+                      <input class="center aligned" id="conf{{this}}" type="number" min="0">
+                    </div>
+                  </td>
+            {{/each}}
+          </tr>
+          
+          <tr>
+            <td>Investigators with a baptismal date</td>
+            {{#each unitsInArea}}
+                  <td class="center aligned"> 
+                    <div class="four wide field">
+                      <input class="center aligned" id="wd{{this}}" type="number" min="0">
+                    </div>
+                  </td>
+            {{/each}}
+          </tr>
+          
+          <tr>
+            <td>Investigators who attended sacrament meeting</td>
+            {{#each unitsInArea}}
+                  <td class="center aligned"> 
+                    <div class="four wide field">
+                      <input class="center aligned" id="sac{{this}}" type="number" min="0">
+                    </div>
+                  </td>
+            {{/each}}
+          </tr>
+          
+          <tr>
+            <td>Lessons taught with a member present</td>
+            {{#each unitsInArea}}
+                  <td class="center aligned"> 
+                    <div class="four wide field">
+                      <input class="center aligned" id="mp{{this}}" type="number" min="0">
+                    </div>
+                  </td>
+            {{/each}}
+          </tr>
+          
+          <tr>
+            <td>New Investigators</td>
+            {{#each unitsInArea}}
+                  <td> 
+                    <div class="four wide field">
+                      <input class="center aligned" id="ni{{this}}" type="number" min="0">
+                    </div>
+                  </td>
+            {{/each}}
+          </tr>
+          
+          <tr>
+            <td>Lessons taught in a member's home</td>
+            {{#each unitsInArea}}
+                  <td> 
+                    <div class="four wide field">
+                      <input class="center aligned" id="mh{{this}}" type="number" min="0">
+                    </div>
+                  </td>
+            {{/each}}
+          </tr>
+          <tr>
+            <td>New investigators found through members</td>
+            {{#each unitsInArea}}
+                  <td> 
+                    <div class="four wide field">
+                      <input class="center aligned" id="nim{{this}}" type="number" min="0">
+                    </div>
+                  </td>
+            {{/each}}
+          </tr>
+          
+          <tr>
+            <td>Baptisms found through members</td>
+            {{#each unitsInArea}}
+                  <td> 
+                    <div class="four wide field">
+                      <input class="center aligned" id="bapm{{this}}" type="number" min="0">
+                    </div>
+                  </td>
+            {{/each}}
+          </tr>
+          
+          {{#if isInRole 'zoneLeader'}}
+          <tr>
+            <td>Zone baptismal goal for {{goalDate}}</td>
+              <td>
+                <div class="four wide field">
+                  <input class="center aligned" id="zbg" type="number" min="1">
+                </div>
+              </td>
+          </tr>
+          {{/if}}
+   
+        </tbody>
+      </table>
+     
+     <div class="ui divider"></div>
+     
+     
+     <div class="ui hidden divider"></div>
+     <div class="ui hidden divider"></div>
+     
+     <table class="ui very basic table" id="t">
+        <thead>
+          <tr>
+            <th>Strengths & Weaknesses</th>
+            {{#each unitsInArea}}
+            <th>{{this}}</th>
+            {{/each}}
+          </tr>
+          </thead>
+        <tbody>         
+          <tr>
+            <td>Strengths of this unit</td>
+            {{#each unitsInArea}}
+                  <td class="center aligned"> 
+                    <div class="four wide field">
+                      <textarea style="max-height: 8em" id="strength{{this}}"></textarea>
+                    </div>
+                  </td>
+            {{/each}}
+          </tr>
+          
+          <tr>
+            <td>Weaknesses of this unit</td>
+            {{#each unitsInArea}}
+                  <td class="center aligned"> 
+                    <div class="four wide field">
+                      <textarea style="max-height: 8em" id="weakness{{this}}"></textarea>
+                    </div>
+                  </td>
+            {{/each}}
+          </tr>
+          
+          <tr>
+            <td>Suggested Solution for this unit</td>
+            {{#each unitsInArea}}
+                  <td class="center aligned"> 
+                    <div class="four wide field">
+                      <textarea style="max-height: 8em" id="solution{{this}}"></textarea>
+                    </div>
+                  </td>
+            {{/each}}
+          </tr>
+   
+        </tbody>
+      </table>
+     
+     
+     
+  </form>
+    <div class="ui divider"></div>
+      <button class="ui positive button ki submit" form="kiForm">Submit</button>
+    </div>
+    <div class="ui hidden divider"></div>
+  </div>
+</template>

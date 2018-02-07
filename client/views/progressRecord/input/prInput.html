@@ -1,0 +1,257 @@
+<template name="prInput">
+    <div class="ui segment">
+      <form class="ui form" id="prInput">
+  <h4 class="ui dividing header">Details</h4>
+  <div class="fields">
+    <div class="required field">
+      <label>First name</label>
+      <input type="text" placeholder="First Name" id="firstName">
+    </div>
+    <div class="required field">
+      <label>Last name</label>
+      <input type="text" placeholder="Last Name" id="lastName">
+    </div>
+    <div class="required field">
+      <label>Age</label>
+      <div class="sex ui compact selection dropdown">
+  <input type="hidden" name="age" id="age">
+  <i class="dropdown icon"></i>
+  <div class="default text">Age</div>
+  <div class="menu">
+    {{#each age}}
+    <div class="item" data-value="{{this}}">{{this}}</div>
+    {{/each}}
+  </div>
+</div>
+    </div>
+    <div class="required field">
+      <label>Sex</label>
+      <div class="sex ui compact selection dropdown">
+  <input type="hidden" name="gender" id="sex">
+  <i class="dropdown icon"></i>
+  <div class="default text">Gender</div>
+  <div class="menu">
+    <div class="item" data-value="Male">Male</div>
+    <div class="item" data-value="Female">Female</div>
+  </div>
+</div>
+    </div>
+  </div>
+      
+      <div class="fields">
+        <div class="required field">
+          <label>Street Address</label>
+          <input type="text" placeholder="123 Easy St" id="streetAddress">
+        </div>
+        <div class="required field">
+          <label>Phone Number</label>
+          <input type="number" placeholder="5592310700 (#'s only)" maxlength="12" id="phone">
+        </div>
+        <div class="required field">
+      <label>Unit</label>
+      <div class="units ui compact selection dropdown">
+  <input type="hidden" name="units" id="unit">
+  <i class="dropdown icon"></i>
+  <div class="default text">Units</div>
+  <div class="menu">
+    {{#each units}}
+    <div class="item" data-value="{{this._id}}">{{name}}</div>
+    {{/each}}
+  </div>
+</div>
+    </div>
+      </div>
+    
+    
+  <h4 class="ui dividing header">Progress</h4>
+  <div class="fields">
+    
+    <div class="required field" id="lessonsTaught">
+      <label>{{#if baptized}}NML's Taught{{else}}Lessons Taught{{/if}}</label>
+      <select name="lessons" multiple="" class="lessons ui dropdown" id="lessons">
+        <option value="">Select All Lessons Taught</option>
+        <option value="1">1</option>
+        <option value="2">2</option>
+        <option value="3">3</option>
+        <option value="4">4</option>
+        <option value="5">5</option>
+        </select>
+    </div>
+    
+    <div class="required field">
+      <label>Fellowship</label>
+      <input type="text" placeholder="Fellowship" id="fellowship">
+    </div>
+    
+    <div class="required field">
+      <label>Times Attended Church</label>
+      <div class="age ui compact selection dropdown">
+  <input type="hidden" name="attendedChurch" id="attendedChurch">
+  <i class="dropdown icon"></i>
+  <div class="default text">Number of Times</div>
+  <div class="menu">
+    <div class="item" data-value="0">0</div>
+    <div class="item" data-value="1">1</div>
+    <div class="item" data-value="2">2</div>
+    <div class="item" data-value="3">3</div>
+    <div class="item" data-value="4">4</div>
+    <div class="item" data-value="5">5</div>
+    <div class="item" data-value="6">6</div>
+    <div class="item" data-value="7">7</div>
+    <div class="item" data-value="8">8</div>
+    <div class="item" data-value="9">9</div>
+    <div class="item" data-value="10+">10+</div>
+  </div>
+</div>
+    </div>
+    <div class="fields">
+    <div class="required field">
+      <label>Baptism: Month</label>
+      <div class="date ui compact selection dropdown">
+  <input type="hidden" name="dateMonth" id="bapMonth">
+  <i class="dropdown icon"></i>
+  <div class="default text">Month</div>
+  <div class="menu">
+    <div class="item" data-value="January">Jan</div>
+    <div class="item" data-value="February">Feb</div>
+    <div class="item" data-value="March">Mar</div>
+    <div class="item" data-value="April">Apr</div>
+    <div class="item" data-value="May">May</div>
+    <div class="item" data-value="June">Jun</div>
+    <div class="item" data-value="July">Jul</div>
+    <div class="item" data-value="August">Aug</div>
+    <div class="item" data-value="September">Sept</div>
+    <div class="item" data-value="October">Oct</div>
+    <div class="item" data-value="November">Nov</div>
+    <div class="item" data-value="December">Dec</div>
+  </div>
+</div>
+      </div>
+      <div class="required field">
+        <label>Day</label>
+      <div class="date ui compact selection dropdown">
+  <input type="hidden" name="dateDay" id="bapDay">
+  <i class="dropdown icon"></i>
+  <div class="default text">Day</div>
+        <div class="menu">
+  {{#each day}}
+    <div class="item" data-value="{{this}}">{{this}}</div>
+    {{/each}}
+        </div>
+</div>
+    </div>
+      
+      <div class="required field">
+        <label>Year</label>
+        <div class="date ui compact selection dropdown">
+        <input type="hidden" name="dateDay" id="bapYear">
+          <i class="dropdown icon"></i>
+          <div class="default text">
+            Year
+          </div>
+          <div class="menu">
+            {{#each year}}
+            <div class="item" data-value="{{this}}">{{this}}</div>
+              {{/each}}
+            </div>
+          </div>
+        </div>
+      
+      {{#if notBaptized}}
+      <div class="field">
+      <div class="solid ui checkbox" id="solid">
+      <input type="checkbox" name="solid">
+        <label><strong>Solid?</strong></label>
+      </div>
+      </div>
+      {{/if}}
+      
+    </div>
+</div>
+        
+        <div class="fields">
+          <div class="fields">
+    <div class="required field">
+      <label>Confirmation: Month</label>
+      <div class="date ui compact selection dropdown">
+  <input type="hidden" name="dateMonth" id="conMonth">
+  <i class="dropdown icon"></i>
+  <div class="default text">Month</div>
+  <div class="menu">
+    <div class="item" data-value="January">Jan</div>
+    <div class="item" data-value="February">Feb</div>
+    <div class="item" data-value="March">Mar</div>
+    <div class="item" data-value="April">Apr</div>
+    <div class="item" data-value="May">May</div>
+    <div class="item" data-value="June">Jun</div>
+    <div class="item" data-value="July">Jul</div>
+    <div class="item" data-value="August">Aug</div>
+    <div class="item" data-value="September">Sept</div>
+    <div class="item" data-value="October">Oct</div>
+    <div class="item" data-value="November">Nov</div>
+    <div class="item" data-value="December">Dec</div>
+  </div>
+</div>
+      </div>
+      <div class="required field">
+        <label>Day</label>
+      <div class="date ui compact selection dropdown">
+  <input type="hidden" name="dateDay" id="conDay">
+  <i class="dropdown icon"></i>
+  <div class="default text">Day</div>
+        <div class="menu">
+  {{#each day}}
+    <div class="item" data-value="{{this}}">{{this}}</div>
+    {{/each}}
+        </div>
+</div>
+    </div>
+      
+      <div class="required field">
+        <label>Year</label>
+        <div class="date ui compact selection dropdown">
+        <input type="hidden" name="dateDay" id="conYear">
+          <i class="dropdown icon"></i>
+          <div class="default text">
+            Year
+          </div>
+          <div class="menu">
+            {{#each year}}
+            <div class="item" data-value="{{this}}">{{this}}</div>
+              {{/each}}
+            </div>
+          </div>
+        </div>
+      
+    </div>
+        </div>
+        
+<div class="required field">
+      <div class="required field">
+        <label>Help Needed</label>
+        <textarea id="helpNeeded"></textarea>
+      </div>
+</div>
+        
+        
+   <div class="ui segment">
+    <div class="field">
+      <div class="bap ui toggle checkbox">
+        <input type="checkbox" name="baptized" id="bapChkBox">
+        <label>Baptized! (Make Recent Convert)</label>
+      </div>
+    </div>
+  </div>
+        
+  {{#if baptized}}
+     {{> rcDetailsInput}}
+  {{/if}}
+        <div class="ui hidden divider"></div>
+        
+    <div class="actions">
+      <button class="ui positive button" type="submit">Add to Progress Record</button>
+      <button class="cancel ui button">Cancel</button>
+    </div>
+</form>
+    </div>
+</template>

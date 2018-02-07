@@ -1,0 +1,37 @@
+<template name="kiTable">
+  <table class="ui fluid celled padded table">
+  <thead>
+    <tr>
+    <th class="single line">Area</th>
+    <th>Baptized/Confirmed</th>
+    <th>W/ Date</th>
+    <th>@ SAC</th>
+    <th>Member Present</th>
+    <th>New Investigators</th>
+  </tr></thead>
+  <tbody>
+    {{#each areasKIs}}
+    <tr>
+      <td>
+        {{name}}
+      </td>
+      <td class="edit single line">
+        {{bap}}/{{conf}}
+      </td>
+      <td class="edit">
+        {{wd}}
+      </td>
+      <td class="edit">
+        {{atsac}}
+      </td>
+      <td class="edit">
+        {{mp}}
+      </td>
+      <td class="edit">
+        {{ni}}
+      </td>
+    </tr>
+    {{/each}}
+  </tbody>
+</table>
+</template>

@@ -1,0 +1,12 @@
+<template name="districtLeaderSelect">
+  <select class="district ui dropdown" name="{{name}}" id="mySelect">
+              <option value="{{leader}}">{{leaderName}}</option>
+              {{#each areas}}
+              {{#if equals ../_id district}}
+                {{#if notEquals ../leader name}}
+                  <option value="{{name}}" name="{{district}}">{{name}}</option>
+                {{/if}}
+              {{/if}}
+          {{/each}}
+            </select>
+</template>

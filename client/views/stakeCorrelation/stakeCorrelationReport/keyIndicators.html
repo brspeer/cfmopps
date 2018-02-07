@@ -1,0 +1,123 @@
+<template name="_keyIndicators">
+  <div class="ui hidden divider"></div>
+         {{> trends}}
+<table class="ui fluid celled padded table">
+  <thead>
+    <tr>
+    <th class="single line">Unit Name</th>
+    <th>Baptized/Confirmed</th>
+    <th>W/ Date</th>
+    <th>@ SAC</th>
+    <th>Member Present</th>
+    <th>New Investigators</th>
+    <th>Member Homes</th>
+    {{#if isInRole 'zoneLeader'}}<th class="right aligned">{{#if editing}}<button class="ui icon positive button"><i class="checkmark icon"></i></button>{{else}}<button class="ui icon primary button"><i class="write icon"></i></button>{{/if}}</th>{{/if}}
+  </tr></thead>
+  <tbody>
+    {{#each unitsKIs}}
+    <tr>
+      <td>
+        <strong>{{name}}</strong>
+      </td>
+      <td class="single line">
+        {{bap}}/{{conf}}
+      </td>
+      <td>
+        {{wd}}
+      </td>
+      <td>
+        {{atsac}}
+      </td>
+      <td>
+        {{mp}}
+      </td>
+      <td>
+        {{ni}}
+      </td>
+      {{#if isInRole 'zoneLeader'}}
+        <td colspan="2">
+          {{mh}}
+        </td>
+      {{else}}
+      <td>
+        {{mh}}
+      </td>
+      {{/if}}
+    </tr>
+    {{#if isInRole 'zoneLeader'}}
+      {{#each areaNums}}
+      {{#each this}}
+      <tr id="{{this.kiId}}" class="editTR">
+      <td>
+          {{this.name}}
+      </td>
+      <td>
+        {{#if editing}}
+          <div class="ui fluid input">
+          <input class="ui fluid input" id="{{this.kiId}}bap" value="{{this.bap}}"> / <input class="ui fluid input" id="{{this.kiId}}conf" value="{{this.conf}}">
+        </div>
+        {{else}}
+        {{this.bap}} / {{this.conf}}
+        {{/if}}
+      </td>
+      <td>
+        {{#if editing}}
+        <div class="ui fluid input">
+          <input class="ui fluid input" id="{{this.kiId}}wd" value="{{this.wd}}">
+        </div>
+        {{else}}
+        {{this.wd}}
+        {{/if}}
+      </td>
+      <td>
+          {{#if editing}}
+        <div class="ui fluid input">
+          <input class="ui fluid input" id="{{this.kiId}}atsac" value="{{this.atsac}}">
+        </div>
+        {{else}}
+        {{this.atsac}}
+        {{/if}}
+      </td>
+      <td>
+          {{#if editing}}
+        <div class="ui fluid input">
+          <input class="ui fluid input" id="{{this.kiId}}mp" value="{{this.mp}}">
+        </div>
+        {{else}}
+        {{this.mp}}
+        {{/if}}
+      </td>
+      <td>
+          {{#if editing}}
+        <div class="ui fluid input">
+          <input class="ui fluid input" id="{{this.kiId}}ni" value="{{this.ni}}">
+        </div>
+        {{else}}
+        {{this.ni}}
+        {{/if}}
+      </td>
+      <td colspan="2">
+          {{#if editing}}
+        <div class="ui fluid input">
+          <input class="ui fluid input" id="{{this.kiId}}mh" value="{{this.mh}}">
+        </div>
+        {{else}}
+        {{this.mh}}
+        {{/if}}
+      </td>
+    </tr>
+    {{/each}}
+      {{/each}}
+    {{/if}}
+    {{/each}}
+  </tbody>
+</table>
+  <div class="ui two column doubling stackable grid container">
+  <div class="column">
+      {{> scFunnel}}
+  </div>
+  <div class="column">
+      {{> scMaynesBar}}
+  </div>
+</div>
+</template>

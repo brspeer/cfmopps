@@ -1,0 +1,24 @@
+<template name="stakeCorrelation">
+  <div class="ui container">
+    <div class="ui segment">
+      <h2 class="ui dividing header">Stake Correlation</h2>
+          {{#if isInRole 'office, zoneLeader'}}
+      <div class="ui selection dropdown" id="drilldownStakeSC" style="float: right">
+      <input type="hidden">
+      <i class="dropdown icon"></i>
+      <div class="default text">Select Stake</div>
+      <div class="menu">
+        {{#each stakes}}
+        <div class="item" data-value="{{_id}}">{{name}}</div>
+        {{/each}}
+      </div>
+  </div>
+      <div class="ui hidden divider"></div>
+      {{/if}}
+      <div class="ui hidden divider"></div>
+      {{> stakeCorrelationReport}}
+      <div class="ui hidden divider"></div>
+    </div>
+    <div class="ui hidden divider"></div>
+  </div>
+</template>

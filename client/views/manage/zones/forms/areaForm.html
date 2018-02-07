@@ -1,0 +1,46 @@
+<template name="areaForm">
+  <div class="ui segment">
+    <form class="ui form">
+      <div class="field">
+        <label>Area Name</label>
+        <input type="text" id="areaName" placeholder="Enter Area Name"/>
+      </div>
+      <div class="field">
+        <label>Units This Area Covers</label>
+        <select type="ui selection dropdown" multiple="" id="multi-select">
+          <option value="">Please Select Units</option>
+        {{#each units}}
+            <option value="{{_id}}">{{name}}</option>
+        {{/each}}
+        </select>
+      </div>
+      <div class="field">
+        <label>District</label>
+        <select type="ui selection dropdown" id="areaDis">
+          <option value="">Please Pick A District</option>              
+          {{#each districts}}
+              <option value="{{name}}">{{name}}</option>
+          {{/each}}
+        </select>
+      </div>
+      <div class="field">
+        <label>Phone Number</label>
+        <input type="number" id="areaPhone" placeholder="Enter Phone Number"/>
+      </div>
+    <div class="field">
+      <div class="ui checkbox">
+        <input type="checkbox" id="user" checked=""/>
+        <label>Create User Account?</label>
+      </div>
+    </div>
+      <div class="actions">
+        <button class="ui positive button addArea">
+        Add Area
+        </button>
+        <button class="ui button cancel" href="#">
+        Cancel
+        </button>
+     </div>
+  </form>
+  </div>
+</template>

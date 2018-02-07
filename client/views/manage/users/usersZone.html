@@ -1,0 +1,51 @@
+<template name="usersZone">
+  <div class="ui container">
+    <div class="ui segment">
+    <h2 class="ui dividing header">The {{currentZone}} Zone's Users</h2>
+      {{#if isCreatingUser}}
+      {{> usersForm}}
+    {{else}}
+      <button class="ui basic button" id="addUser">+ Add User</button>
+    {{/if}}
+      <div class="ui hidden divider"></div>
+       <table class="ui very basic table">
+         <thead>
+          <th>Username</th>
+          <th>Area</th>
+           <th>Password</th>
+          <th></th>
+        </thead>
+      <tbody>
+        {{#each users}}
+        <tr>
+          <td>{{#if isEditingUser}}
+            <form class="areaEdit">
+                      <label>New Username:</label>
+                      <div class="ui mini input">
+                        <input id="editName" name="area" type="text" value="{{username}}">
+                      </div>
+                      <button id="update" type="submit" class="ui green mini button" name="{{username}}">Save</button>
+                      <a class="cancel" href="#">Cancel</a>
+                    </form>
+            {{else}}
+            {{username}}
+          {{/if}}
+          </td>
+          <td>{{areaName}}</td>
+          {{#if isEditingUser}}
+          <td><div class="ui mini input">
+  <input type="text" placeholder="New Password" id="password">
+</div></td>
+          {{else}}
+          <td></td>
+          {{/if}}
+          <td class="right aligned"><a class="edit" href="#">Edit</a> / <a class="delete" href="#">Delete</a></td>
+        </tr>
+        {{/each}}
+      </tbody>
+         </table>
+    <div class="ui hidden divider"></div>
+  </div>
+  </div>
+  <div class="ui hidden divider"></div>
+</template>

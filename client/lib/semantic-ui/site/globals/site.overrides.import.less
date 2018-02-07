@@ -1,0 +1,26 @@
+/*******************************
+         Site Overrides
+*******************************/
+.noselect {
+  -webkit-touch-callout: none; /* iOS Safari */
+  -webkit-user-select: none;   /* Chrome/Safari/Opera */
+  -khtml-user-select: none;    /* Konqueror */
+  -moz-user-select: none;      /* Firefox */
+  -ms-user-select: none;       /* IE/Edge */
+  user-select: none;           /* non-prefixed version, currently
+                                  not supported by any browser */
+}
+
+body:after {
+  content : "";
+    display: block;
+    position: fixed;
+    top: 0;
+    left: 0;
+    background: url('/images/bg.jpg'); 
+    background-size: cover;
+    width: 100%;
+    height: 100%;
+    opacity : 0.4;
+    z-index: -1;
+}

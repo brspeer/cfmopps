@@ -1,0 +1,176 @@
+<template name="conference">
+  <div class="ui container">
+    <div class="ui segment">
+      <h2 class="ui dividing header">{{#if isInRole 'ward'}}Ward Council{{else}}Conference Call{{/if}} Numbers</h2>
+      
+      <div class="ui stackable two column very relaxed grid container" style="position:relative;">
+      
+        <div class="column">
+      {{#if viewNotReported}}
+      <div class="ui segment">
+        <div class="ui bulleted list">
+          {{#each notReported}}
+            <div class="item">
+              {{this.name}}
+            </div>
+          {{/each}}
+        </div>
+      </div>
+      {{/if}}
+      
+      {{#if names}}<div class="ui segment">
+      <h4>{{#unless isInRole 'ward'}} {{zoneName}} - {{/unless}}This Month</h4>
+        <div class="ui bulleted list">
+          {{#each tmSolid}}
+          <div class="item">{{#unless isInRole 'ward'}}{{areaName}} - {{/unless}}{{firstName}} {{lastName}}  - {{bapMonth}} {{bapDay}}, {{bapYear}}</div>
+          {{/each}}
+        </div>
+      </div>
+      {{/if}}
+      {{#if namesNM}}<div class="ui segment">
+      <h4>{{#unless isInRole 'ward'}} {{zoneName}} - {{/unless}}Next Month</h4>
+        <div class="ui bulleted list">
+          {{#each solidNM}}
+          <div class="item">{{#unless isInRole 'ward'}}{{areaName}} - {{/unless}}{{firstName}} {{lastName}}  - {{bapMonth}} {{bapDay}}, {{bapYear}}</div>
+          {{/each}}
+        </div>
+      </div>
+      {{/if}}
+      {{#if namesActuals}}<div class="ui segment">
+      <h4>{{#unless isInRole 'ward'}} {{zoneName}} - {{/unless}}Actuals</h4>
+        <div class="ui bulleted list">
+          {{#each actual}}
+          <div class="item">{{#unless isInRole 'ward'}}{{areaName}} - {{/unless}}{{firstName}} {{lastName}}  - {{bapMonth}} {{bapDay}}, {{bapYear}}</div>
+          {{/each}}
+        </div>
+      </div>
+      {{/if}}
+        </div>
+       
+        {{#unless isInRole 'ward'}}
+        {{#if names}}
+        <div class="column">
+      <div class="ui segment">
+          <h4>
+            {{zoneName}} - Dropped Solids
+        </h4>
+        <div class="ui bulleted list">
+          {{#each dropped}}
+          <div class="item">
+            Names of solids which have dropped will be listed here...
+          </div>
+          {{/each}}
+        </div>
+          
+       </div>
+        </div>
+        {{/if}}
+        {{/unless}}
+        
+      </div>
+      
+      <table class="ui striped right aligned table" id="conferenceTable">
+        {{#unless isInRole 'ward'}}
+        <thead>
+          <tr>
+            <th>Zone</th>
+            <th>Goal</th>
+            <th>YC's</th>
+            <th>HB</th>
+            <th>WB</th>
+            <th>Actuals</th>
+            <th>Solids(this month)</th>
+            <th>Solids(next month)</th>
+            <th>MP</th>
+            <th>PI</th>
+            <th>NI</th>
+          </tr>
+        </thead>
+        <tbody>
+          {{#each conferenceNums}}
+          <tr>
+            <td>{{this.name}}</td>
+            <td>{{this.goal}}</td>
+            <td>{{this.yc}}</td>
+            <td>{{this.hb}}</td>
+            <td>{{this.wb}}</td>
+            <td class="actuals"><a style="cursor: pointer">{{this.actuals}}</a></td>
+            <td class="solids"><a style="cursor: pointer">{{this.tmSolids}}</a></td>
+            <td class="solidsNM"><a style="cursor: pointer">{{this.nmSolids}}</a></td>
+            <td>{{this.mp}}</td>
+            <td>{{this.pi}}</td>
+            <td>{{this.ni}}</td>
+          </tr>
+          {{/each}}
+        </tbody>
+        
+        
+        <tfoot class="full-width">
+          <tr>
+            {{#each totalNums}}
+            <th><strong>Total</strong></th>
+            <th><strong>{{this.goal}}</strong></th>
+            <th><strong>{{this.yc}}</strong></th>
+            <th><strong>{{this.hb}}</strong></th>
+            <th><strong>{{this.wb}}</strong></th>
+            <th><strong>{{this.actuals}}</strong></th>
+            <th><strong>{{this.tmSolids}}</strong></th>
+            <th><strong>{{this.nmSolids}}</strong></th>
+            <th><strong>{{this.mp}}</strong></th>
+            <th><strong>{{this.pi}}</strong></th>
+            <th><strong>{{this.ni}}</strong></th>
+            {{/each}}
+          </tr>
+        </tfoot>
+        {{/unless}}
+        
+        {{#if isInRole 'ward'}}
+        <thead>
+          <tr>
+            <th>Actuals</th>
+            <th>Solids(this month)</th>
+            <th>Solids(next month)</th>
+            <th>MP</th>
+            <th>PI</th>
+            <th>NI</th>
+          </tr>
+        </thead>
+        
+        <tbody>
+          <tr>
+            {{#each wardNums}}
+            <td class="actuals"><a style="cursor: pointer">{{this.actuals}}</a></td>
+            <td class="solids"><a style="cursor: pointer">{{this.tmSolids}}</a></td>
+            <td class="solidsNM"><a style="cursor: pointer">{{this.nmSolids}}</a></td>
+            <td>{{this.mp}}</td>
+            <td>{{this.pi}}</td>
+            <td>{{this.ni}}</td>
+            {{/each}}
+          </tr>
+        </tbody>
+        {{/if}}
+      </table>
+      
+      <div class="ui hidden divider"></div>
+      {{#unless isInRole 'ward'}}
+      <form class="ui form">
+        <h4>Notes:</h4>
+        <textarea id="notes">{{notes}}</textarea>
+      </form>
+      <div class="ui hidden divider"></div>
+      <button class="ui positive button">
+        Save
+      </button>
+      
+      <button class="ui right floated button">
+        Not Reported
+      </button>
+      {{/unless}}
+      
+      {{#if isInRole 'ward'}}
+      {{> progressRecord}}
+      {{/if}}
+    </div>
+    <div class="ui hidden divider"></div>
+  </div>
+</template>

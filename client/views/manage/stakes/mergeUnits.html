@@ -1,0 +1,26 @@
+<template name="mergeUnits">
+  <div class="ui segment">
+    <h2 class="ui header">Delete Unit</h2>
+    <h4 class="ui header">Before deleting a unit, you must assign this unit's key indicators to another unit. Where would you like them to go?</h4>
+    <div class="ui hidden divider"></div>
+    Send KI's from <strong>{{unit.name}}</strong> to 
+
+<div class="ui selection dropdown">
+  <input type="hidden" name="gender">
+  <i class="dropdown icon"></i>
+  <div class="default text">Select Unit</div>
+  <div class="menu">
+    {{#each units}}
+    <div class="item" data-value="{{_id}}">{{name}}</div>
+    {{/each}}
+  </div>
+</div>
+    
+    <div class="ui hidden divider"> </div>
+    <div class="actions">
+     <button class="ui cancel button">Cancel</button>
+     <button class="ui right floated negative button">Move KI's & Delete</button> 
+    </div>
+    
+    </div>
+</template>

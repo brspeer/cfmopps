@@ -1,0 +1,15 @@
+<template name="login">
+ <div class="ui container">
+    {{#if currentUser }}
+    {{> dashboard}}
+    {{else}}
+    <div class="ui two column centered grid">
+      <div class="column">
+           <div class="ui hidden divider"></div>
+   <div class="ui hidden divider"></div>
+        {{> atForm state='signIn'}}
+      </div>
+    </div>
+    {{/if}}
+  </div>
+</template>

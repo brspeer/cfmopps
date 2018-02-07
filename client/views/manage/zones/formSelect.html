@@ -1,0 +1,10 @@
+<template name="formSelect">
+<select class="area ui dropdown" id="mySelect{{name}}" name="{{name}}">
+  <option value="{{districtName}}">{{districtName}}</option>
+  {{#each districtsInZone}}
+    {{#if notEquals ../district name}}
+        <option value="{{name}}">{{name}}</option>
+    {{/if}}
+  {{/each}}
+</select>
+</template>

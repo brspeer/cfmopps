@@ -1,0 +1,1 @@
+import moment from 'moment';          // default import from npm

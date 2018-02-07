@@ -1,0 +1,52 @@
+<template name="rcDetailsEdit">
+  <div class="ui hidden divider"></div>
+<div id="rcDetails">
+  <h4 class="ui dividing header">Recent Convert Details</h4>
+    <div class="fields">
+      <div class="field">
+        <div class="temple ui checkbox" id="temple">
+      <label>Attended Temple?</label>
+      <input type="checkbox" name="temple">
+        </div>
+    </div>
+    
+    <div class="field">
+      <div class="calling ui checkbox" id="calling">
+      <label>Calling?</label>
+      <input type="checkbox" name="calling">
+      </div>
+    </div>
+    
+    {{#if male}}
+      {{> priesthood}}
+    {{/if}}
+      
+    <div class="field">
+      <div class="church ui checkbox" id="church">
+      <label>Attended Church this month?</label>
+      <input type="checkbox" name="church">
+      </div>
+    </div>
+      
+    <div class="field">
+      <div class="fh ui checkbox" id="fh">
+      <label>Worked on family history?</label>
+      <input type="checkbox" name="fh">
+      </div>
+    </div>
+      
+    <div class="field">
+      <div class="teachers ui checkbox" id="teachers">
+      <label>Home/Visiting Teachers Assigned?</label>
+      <input type="checkbox" name="teachers">
+      </div>
+    </div>
+    <div class="field">
+      <div class="teachers ui checkbox" id="progressed">
+      <label>Progressed In NML's? (If not completed)</label>
+      <input type="checkbox" name="progressed">
+      </div>
+    </div>
+  </div>
+  </div>
+</template>

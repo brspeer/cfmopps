@@ -1,0 +1,11 @@
+<template name="unitDropdown">
+  <div class="field">
+        <label>Unit</label>
+        <select class="ui search selection dropdown" id="unit" placeholder="Please Select Unit">
+          <option value="">Unit</option>
+          {{#each units}}
+            <option value="{{name}}}">{{name}}</option>
+          {{/each}}
+        </select>
+      </div>
+</template>

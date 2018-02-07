@@ -1,0 +1,28 @@
+{
+  "name": "cfm-app",
+  "version": "1.0.0",
+  "description": "Application for reporting and operations of the California Fresno Mission",
+  "main": "conversion.js",
+  "dependencies": {
+    "bcrypt": "^0.8.7",
+    "c3": "^0.4.11",
+    "d3": "^4.2.8",
+    "meteor-node-stubs": "^0.2.3",
+    "react": "^15.3.2",
+    "react-dom": "^15.3.2"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/benjispeer/cfm-meteor.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/benjispeer/cfm-meteor/issues"
+  },
+  "homepage": "https://github.com/benjispeer/cfm-meteor#readme"
+}

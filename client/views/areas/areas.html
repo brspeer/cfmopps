@@ -1,0 +1,51 @@
+<template name="areas">
+  <div class="ui container">
+    <div class="ui segment">
+    <h3 class="ui dividing header">Areas</h3> 
+    {{#if isCreatingArea}}
+      {{> quickForm collection="Areas" id="insertAreaForm" type="insert"}}
+      <a class="cancel" href="#">Cancel</a>
+      
+      <!--<form class="ui form segment">
+        <h5 class="ui header">Enter New Area's Information</h5>
+        <div class="ui input">
+          <input name="name" type="text">
+        </div>
+        <div class="ui buttons">
+          <button type="submit" class="ui positive button">Save</button>
+          <div class="or"></div>
+          <button class="ui negative button">Cancel</button>
+        </div>
+      </form>-->
+
+    
+    {{else}}
+
+      <button class="ui basic button">Add Area</button>
+    {{/if}}
+      <div class="ui hidden divider"></div>
+    <!-- Areas Table -->
+    <!--{{> autoForm collection="Areas" id="addNewArea" type="insert" class="new-area-form"}} -->
+    <table class="ui very basic table">
+      <thead>
+        <tr>
+          <th data-field="id">Name</th>
+          <th data-field="id">District</th>
+          <th data-field="id">Zone</th>
+          <th data-field="id" class="right aligned">Edit/Delete</th>
+        </tr>
+      </thead>
+
+      <tbody>
+        {{#each areas}}
+        <tr>
+          {{> area}}
+        </tr>
+        {{/each}}
+      </tbody>
+
+    </table>
+
+  </div>
+  </div>
+</template>

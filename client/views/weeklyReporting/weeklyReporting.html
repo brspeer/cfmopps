@@ -1,0 +1,115 @@
+<template name="weeklyReporting">
+  <div class="ui container">
+    <div class="ui segment">
+      
+    <h2 class="ui dividing header">Weekly Key Indicator Entry</h2>
+     <h4>
+       Report For: {{myArea.name}} 
+      </h4>
+      <h4 class="right aligned">
+        Reporting Week: {{date}}
+      </h4>
+      <div class="ui hidden divider"></div>
+      
+      
+      <!-- weeklyReporting Table -->
+   <form class="ui form" id="kiForm">
+      <table class="ui very basic table" id="t">
+        <thead>
+          <tr>
+              <th>Key Indicators</th>
+            {{#each unitsInArea}}
+              <th>{{this.name}}</th>
+            {{/each}}
+          </tr>
+          </thead>
+        <tbody> 
+          {{#let unitsInArea=unitsInArea}}
+            {{#each indicators}}
+              {{#if this.input}}
+                {{#let key=this.key}}
+                <tr>
+                  <td>{{this.label}}</td>
+                  {{#each unitsInArea}}
+                        <td class="center aligned"> 
+                          {{#if this.thisWeekKI}}
+                              <div class="disabled four wide field">
+                                <input class="center aligned" id="{{key}}-{{this._id}}" type="number" min="0" placeholder="{{getKey this.thisWeekKI key}}" disabled required>
+                              </div>
+                          {{else}}
+                              <div class="four wide field">
+                                <input class="center aligned" id="{{key}}-{{this._id}}" type="number" min="0" required>
+                              </div>                   
+                          {{/if}}
+                        </td>
+                  {{/each}}           
+                </tr>
+                {{/let}}
+              {{/if}}
+            {{/each}}
+          {{/let}}
+          
+          <tr>
+            <td>Just serve hours (companionship total)</td>
+                  <td> 
+                  {{#if myArea.thisWeekJSH}}
+                    <div class="disabled four wide field">
+                      <input class="center aligned" id="jsh" type="number" min="0" placeholder="{{myArea.thisWeekJSH.hours}}" disabled required>
+                    </div>
+                  {{else}}
+                      <div class="four wide field">
+                        <input class="center aligned" id="jsh" type="number" min="0" required>
+                      </div>                    
+                  {{/if}}
+                  </td>
+          </tr>
+          <tr>
+            <td>Line in the water</td>
+                  <td> 
+                  {{#if myArea.thisWeekJSH}}
+                    <div class="disabled four wide field">
+                      <input class="center aligned" id="litw" type="number" min="0" placeholder="{{myArea.thisWeekJSH.litw}}" disabled required>
+                    </div>
+                  {{else}}
+                      <div class="four wide field">
+                        <input class="center aligned" id="litw" type="number" min="0" required>
+                      </div>                  
+                  {{/if}}
+
+                  </td>
+          </tr>
+          <tr><td></td><td></td></tr>
+        </tbody>
+        
+        {{#if isZoneLeader}} 
+          {{#if unitsInZone}}
+          <thead>
+              <tr>
+                  <th class="ui header"><h4>Yearly Unit Baptismal Goals</h4></th>
+                  <th></th>
+              </tr>
+          </thead>
+          <tbody>
+              {{#each unitsInZone}}
+              <tr>
+                  <td>{{name}}</td>
+                  <td class="center aligned">
+                      <div class="four wide field">
+                          <input class="center aligned" id="goal_{{_id}}" type="number" min="0">
+                      </div>
+                  </td>
+              </tr>
+              {{/each}}
+          </tbody>
+          {{/if}} 
+        {{/if}}
+
+
+      </table>   
+    <div class="ui divider"></div>
+      <input type="submit" class="ui positive button ki submit" value="Submit">
+  </form>
+    </div>
+    <div class="ui hidden divider"></div>
+  </div>
+</template>

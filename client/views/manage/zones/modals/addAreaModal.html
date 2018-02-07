@@ -1,0 +1,50 @@
+<template name="addAreaModal">
+  <div class="header">
+    Add Area
+  </div>
+  <div class="content">
+    <div class="ui container">
+      <form class="ui form" id="addAreaForm">
+      <div class="field">
+        <label>Area Name</label>
+        <input type="text" id="areaName" placeholder="Enter Area Name"/>
+      </div>
+      <div class="field">
+        <label>Units This Area Covers</label>
+        <select type="ui selection dropdown" multiple="" id="multi-select">
+          <option value="">Please Select Units</option>
+        {{#each units}}
+          {{#if equals stake zoneEdit}}
+            <option value="{{_id}}">{{name}}</option>
+          {{/if}}
+        {{/each}}
+        </select>
+      </div>
+      <div class="field">
+        <label>District</label>
+        <select type="ui selection dropdown" id="areaDis">
+          <option value="">Please Pick A District</option>              
+          {{#each districts}}
+            {{#if equals zone zoneEdit}}
+              <option value="{{name}}">{{name}}</option>
+            {{/if}}
+          {{/each}}
+        </select>
+      </div>
+    <div class="field">
+      <div class="ui checkbox">
+        <input type="checkbox" id="user" checked=""/>
+        <label>Create User Account?</label>
+      </div>
+    </div>
+  </form>
+    </div>
+  </div>
+  <div class="actions">
+      <div class="ui buttons">
+  <button class="ui button positive">Add Area</button>
+  <div class="or"></div>
+  <button class="ui button cancel">Cancel</button>
+        </div>
+  </div>
+</template>

@@ -1,0 +1,120 @@
+<template name="zone">
+  <div class="ui container">
+    <button class="back ui basic button" style="background: white !important;">Back To Zones</button>
+    <div class="ui segment">
+    <h2 class="ui dividing header">The {{currentZoneName}} Zone</h2>
+      {{#if orNot isCreatingArea isCreatingDistrict}}
+        <button name="addArea" class="add area ui basic button" id="addArea">+Add Area</button>
+        <button name="addDis" class="add district ui basic button" id="addDis">+Add District</button>
+      {{/if}}
+      {{#if isCreatingArea}}
+        {{> areaForm}}
+      {{/if}}
+      {{#if isCreatingDistrict}}
+        {{> districtForm}}
+      {{/if}}
+      <h3 class="ui header">
+      Zone Leader Area: 
+      </h3>
+      <select class="zone ui dropdown" id="select{{currentZone}}">
+        <option value={{zoneLeaderArea}}>{{zoneLeaderArea}}</option>
+        {{#each areasInZone}}
+          {{#if notEquals name zoneLeaderArea}}
+            <option value="{{name}}">{{name}}</option>
+          {{/if}}
+        {{/each}}
+      </select>
+      
+    {{#each districts}}
+    {{#if equals currentZone zone}}
+      <div class="ui hidden divider"></div>
+      <table class="ui basic table">
+        <thead>
+          
+          <tr>
+            <th colspan="2"><strong>{{name}} Leader: </strong>{{> districtLeaderSelect}}</th>
+            <th></th>
+          <th><button class="mini negative ui right floated labeled icon button" name="{{name}}" id="{{name}}"><i class="remove icon"></i>Delete District</button></th>
+          </tr>
+          
+          
+          <tr>
+            <th data-field="id">Active</th>
+            <th data-field="id">Area</th>
+            <th data-field="id">District</th>
+            <th data-field="id" class="right aligned">Edit</th>
+            <!--<th data-field="id">Units Covered</th>
+            <th data-field="id" class="right aligned">Delete Area</th>-->
+          </tr>
+        </thead>
+
+        <tbody>
+          {{#each activeAreas}}
+          {{#if equals ../_id district}}
+              <tr>
+                <td>{{> activeToggle}}</td>
+                <td id="{{name}}" value="{{name}}">
+                  {{name}}</td>
+                <td>
+       <!-- This template renders the select boxes that need Jquery code to fire every time they are loaded.--> 
+        {{> formSelect}}
+                  </td>
+                
+                <td class="right aligned"><a class="edit name" id="{{name}}" style="cursor: pointer"><i class="edit icon"></i></a></td>
+              </tr>
+          {{/if}}
+          {{/each}}
+        </tbody>
+      </table>
+    {{/if}}
+    {{/each}}
+      <table class="ui basic table">
+        <thead>
+          
+          <tr>
+            <th colspan="2"><strong>Inactive/Unassigned Areas</strong></th>
+          <th></th>
+            <th></th>
+          </tr>
+          
+          
+          <tr>
+            <th data-field="id">Active</th>
+            <th data-field="id">Area</th>
+            <!--<th data-field="id">Units Covered</th>-->
+            <th data-field="id">District</th>            
+            <th data-field="id" class="right aligned">Delete Area</th>
+          </tr>
+        </thead>
+        
+        <tbody>
+          {{#each inactiveAreas}}
+              <tr>
+                <td>{{> activeToggle}}</td>
+                <td id="{{name}}" value="{{name}}">
+                  {{#if isEditingArea}}
+                    <form class="areaEdit">
+                      <label>Rename Area:</label>
+                      <div class="ui mini input">
+                        <input name="area" type="text" value="{{name}}">
+                      </div>
+                      <button type="submit" class="ui green mini button">Save</button>
+                      <a class="cancel" href="#">Cancel</a>
+                    </form>
+             {{else}}
+                  {{name}}{{/if}}{{#if not isEditingArea}}<a class="edit name" id="{{name}}" name="{{name}}" style="cursor: pointer"><i class="edit icon"></i></a>{{/if}}</td>
+                <td>
+       <!-- This template renders the select boxes that need Jquery code to fire every time they are loaded.--> 
+        {{> formSelect}}
+                  </td>
+                
+                <td class="right aligned"><a class="area delete" name="{{name}}" style="cursor: pointer"><i class="circle remove icon" id="{{name}}"></i></a></td>
+              </tr>
+          {{/each}}
+        </tbody>
+      </table>
+    <div class="ui hidden divider"></div>
+  </div>
+  </div>
+  <div class="ui hidden divider"></div>
+</template>

@@ -1,0 +1,168 @@
+<template name="progressRecord">
+      <div class="ui container">
+      <div class="ui segment">
+      <h2 class="ui dividing header">
+        Progress Record
+      </h2>
+      {{#if isInRole 'office,stakePresident'}}
+        <div class="ui selection dropdown" id="drilldownUnitPR" style="float:right">
+      <input type="hidden">
+      <i class="dropdown icon"></i>
+      <div class="default text">Select Unit</div>
+      <div class="menu">
+        {{#each unitsDrilldown}}
+        <div class="item" data-value="{{_id}}">{{name}}</div>
+        {{/each}}
+      </div>
+    </div>
+        {{/if}}
+        {{#if isInRole 'office'}}
+      <div class="ui selection dropdown" id="drilldownZoneSC" style="float: right">
+      <input type="hidden">
+      <i class="dropdown icon"></i>
+      <div class="default text">Select Zone</div>
+      <div class="menu">
+        {{#each zones}}
+        <div class="item" data-value="{{_id}}">{{name}}</div>
+        {{/each}}
+      </div>
+      </div>
+      {{/if}}
+        <!--This add record button should only show for the missionaries-->
+        {{#unless isInRole 'ward'}}<button name="addRec" class="addRec ui basic button" id="addRec">+Add Record</button>{{/unless}}
+        {{#if multipleUnits}}
+        <div class="ui selection dropdown" id="selectUnit">
+      <input type="hidden">
+      <i class="dropdown icon"></i>
+      <div class="default text">Select Unit</div>
+      <div class="menu">
+        {{#each units}}
+        <div class="item" data-value="{{name}}">{{name}}</div>
+        {{/each}}
+      </div>
+    </div>
+        {{/if}}
+        
+        {{#if addRec}}
+        {{> prInput}}
+        {{else}}
+        <!--Nothing-->
+        {{/if}}
+        
+        {{#if editRec}}
+        {{> prEdit}}
+        {{/if}}
+      <div class="ui hidden divider"></div>
+      
+      <div class="ui segment">
+        <table class="ui very basic table" id="prTable">
+  <thead>
+    <tr>
+      <th class="three wide">Details</th>
+      <th class="one wide">Lessons taught</th>
+      <th class="two wide">Fellowship</th>
+      <th class="one wide">@SAC</th>
+      <th>Baptized</th>
+      <th>Confirmed</th>
+      <th class="three wide">Help Needed</th>
+      <th class="right aligned">Edit/Expand</th>
+    </tr>
+  </thead>
+  <tbody>
+    {{#each investigators}}
+    <tr>
+      <td>
+        <div class="ui fluid card" style="box-shadow: none;">
+  <div class="content" style="padding: 0em;">
+    <div class="header" id="name">{{firstName}} {{lastName}}</div>
+    <div class="meta">
+      <span>Investigator</span><br>
+    </div>
+    <p>{{sex}}, {{age}}<br>{{address}}<br>{{phone}}</p>
+  </div>
+</div>
+      </td>
+      
+      <td>
+        {{lessons}}
+      </td>
+      
+      <td>
+        {{fellowship}}
+      </td>
+      
+      <td>
+        {{timesAtSac}}
+      </td>
+      
+      <td>
+        {{bapMonth}} {{bapDay}}, {{bapYear}}
+      </td>
+      
+      <td>
+        {{conMonth}} {{conDay}}, {{conYear}}
+      </td>
+      
+      <td>
+        {{trunc (helpNeeded) 150 }}
+      </td>
+      
+      <td class="right aligned">
+        <a class="expand record" style="cursor: pointer"><i class="expand icon"></i></a>
+      </td>
+      
+    </tr>
+    {{/each}}  
+    
+    {{#each convert}}
+    <tr>
+      <td>
+        <div class="ui fluid card" style="box-shadow: none;">
+  <div class="content" style="padding: 0em;">
+    <div class="header">{{firstName}} {{lastName}}</div>
+    <div class="meta">
+      <span>Recent Convert</span><br>
+    </div>
+    <p>{{sex}}, {{age}}<br>{{address}}<br>{{phone}}</p>
+  </div>
+</div>
+      </td>
+      
+      <td>
+        {{lessons}}
+      </td>
+      
+      <td>
+        {{fellowship}}
+      </td>
+      
+      <td>
+        {{timesAtSac}}
+      </td>
+      
+      <td>
+        {{bapMonth}} {{bapDay}}, {{bapYear}}
+      </td>
+      
+      <td>
+        {{conMonth}} {{conDay}}, {{conYear}}
+      </td>
+      
+      <td>
+        {{trunc (helpNeeded) 150 }}
+      </td>
+      
+      <td class="right aligned">
+        <a class="expand record" style="cursor: pointer"><i class="expand icon"></i></a>
+      </td>
+      
+    </tr>
+    {{/each}}  
+    
+  </tbody>
+</table>
+        </div>
+    </div>
+        <div class="ui hidden divider"></div>
+  </div>
+</template>

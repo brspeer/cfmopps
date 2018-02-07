@@ -1,0 +1,12 @@
+<template name="layout">
+   {{> sAlert}}
+  {{#if currentUser}}
+      {{> sidenav}}
+  {{/if}}
+ <div class="pusher">
+  {{#if currentUser}} 
+  {{> nav}}
+  {{/if}}
+  {{> yield}}
+  </div>
+</template>

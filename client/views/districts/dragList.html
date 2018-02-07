@@ -1,0 +1,9 @@
+<template name="dragList">
+      {{#each areas}}
+        {{#if equals zoneEdit zone}}
+          <div class="item" style="background-color: #1bc98e; margin-top:5px;">
+            <h3 class="ui header noselect">{{name}}</h3>
+          </div>
+        {{/if}}
+      {{/each}}
+</template>

@@ -1,0 +1,31 @@
+<template name="units">
+<div class="ui container">
+    <div class="ui segment">
+    <h3 class="ui dividing header">Units</h3> 
+    {{#if isCreatingUnit}}
+      {{> unitsForm}}
+    {{else}}
+      <button class="ui basic button">+ Add Unit</button>
+    {{/if}}
+      <div class="ui hidden divider"></div>
+    <!-- Areas Table -->
+    <table class="ui very basic table">
+      <thead>
+        <tr>
+          <th rowspan="2">Stake</th>
+          <th rowspan="2">Unit</th>
+        </tr>
+      </thead>
+      <tbody>
+          {{#each units}}
+            <tr>
+              <td>{{stake}}</td>
+              <td>{{name}}</td>
+            </tr>
+          {{/each}}        
+      </tbody>
+    </table>
+  </div>
+  </div>
+
+</template>

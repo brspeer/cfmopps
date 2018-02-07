@@ -1,0 +1,12 @@
+<template name="drilldownAreaSelection">
+<div class="ui selection dropdown" id="drilldownArea">
+      <input type="hidden">
+      <i class="dropdown icon"></i>
+      <div class="default text">Select Area</div>
+      <div class="menu">
+        {{#each drilldownAreas}}
+        <div class="item" data-value="{{name}}">{{name}}</div>
+        {{/each}}
+      </div>
+    </div>
+  </template>

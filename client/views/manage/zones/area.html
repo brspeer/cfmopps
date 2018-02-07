@@ -1,0 +1,61 @@
+<template name="area">
+  <div class="ui container">
+    <button class="back ui basic button" style="background: white !important;">Back To Zone</button>
+    <div class="ui segment">
+    <h2 class="ui dividing header">You are currently editing: {{areaEdit}}</h2>
+      
+      <form class="ui form">
+        <div class="field">
+          <label>Name</label>
+          <input type="text" id="name" value="{{areaEdit}}"/>
+        </div>
+        
+        <div class="field">
+          <label>District</label>
+          <select class="area ui dropdown" id="district">
+            <option value="{{districtName}}">{{districtName}}</option>
+            {{#each districts}}
+              <option value="{{name}}">{{name}}</option>
+            {{/each}}
+          </select>
+        </div>
+        
+        <div class="field">
+          <label>Zone</label>
+          <select class="zone ui dropdown" id="zone">
+            <option value="{{zoneName}}">{{zoneName}}</option>            
+            {{#each zones}}
+              <option value="{{name}}">{{name}}</option>
+            {{/each}}
+          </select>
+        </div>
+        
+        <div class="field">
+    <label>Phone Number</label>
+    <div class="field"><input type="text" maxlength="10" value="{{phoneNumber}}" placeholder="xxxxxxxxxx" id="phoneNumber"></div>
+        </div>
+        
+        <h4>Units</h4>
+        {{#each units}}
+          <div class="field">
+            <div class="ui toggle checkbox {{_id}}a" checked="">
+              <input type="checkbox"  id="{{_id}}"/>
+              <label>{{name}}</label>       
+            </div>
+          </div>
+        {{/each}}
+  
+        
+        <div class="ui divider"></div>
+        <div class="actions">
+          <button class="ui positive button updateArea" href="#">Save</button>
+          <button class="ui right floated negative button deleteArea" href="#">Delete Area</button>  
+        </div>
+      </form>
+      
+      
+      
+      
+        </div>
+      </div>
+</template>

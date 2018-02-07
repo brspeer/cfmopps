@@ -1,0 +1,249 @@
+<template name="nav">
+  <!--Control Flow for all menus-->  
+  {{#unless isInRole 'stakePresident, ward'}}
+  <div class="ui borderless menu grid" style="border-radius: 0px;">
+      
+   <!--Desktop Menu-->   
+    <div class="computer only row">
+      <a class="computer header item">
+      California Fresno Mission
+    </a>
+    {{#if isActiveRoute 'login'}}
+    <a class="item active" href="/">
+      Dashboard
+    </a>
+    {{/if}}
+    {{#if isNotActiveRoute 'login'}}
+    <a class="item" href="/">Dashboard</a> 
+    {{/if}}
+    <div class="ui simple dropdown item">
+        Reporting <i class="dropdown icon"></i>
+        <div class="menu">
+          <a class="item" href="/weeklyReporting">Weekly</a>
+          <a class="item" href="/monthlyReporting">Monthly</a>
+          <a class="item" href="/progressRecord">Progress Record</a>
+        </div>
+      </div>
+    <!--{{#if isActiveRoute 'weeklyReporting'}}
+    <a class="item active" href="/weeklyReporting">Weekly Reporting</a> 
+    {{else}}
+    <a class="item" href="/weeklyReporting">Weekly Reporting</a> 
+    {{/if}}
+    {{#if isActiveRoute 'monthlyReporting'}}
+    <a class="item active" href="/monthlyReporting">Monthly Reporting</a>
+    {{else}}
+    <a class="item" href="/monthlyReporting">Monthly Reporting</a> 
+    {{/if}}
+    {{#if isActiveRoute 'progressRecord'}}
+    <a class="item active" href="/progressRecord">Progress Record</a>
+    {{else}}
+    <a class="item" href="/progressRecord">Progress Record</a> 
+    {{/if}}-->
+    {{#if isInRole 'office'}}
+      {{#if isActiveRoute 'stakeCorrelation'}}
+    <a class="item active" href="/stakeCorrelation">Stake Correlation</a> 
+    {{else}}
+    <a class="item" href="/stakeCorrelation">Stake Correlation</a> 
+    {{/if}}
+      {{/if}}
+      {{#if isInRole 'zoneLeader'}}
+      {{#if isActiveRoute 'stakeCorrelation'}}
+    <a class="item active" href="/stakeCorrelation">Stake Correlation</a> 
+    {{else}}
+    <a class="item" href="/stakeCorrelation">Stake Correlation</a> 
+    {{/if}}
+      {{/if}}
+      {{#if isInRole 'office'}}
+      <a class="item" href="/conference">Conference Call</a>
+      <div class="ui simple dropdown item">
+        Manage <i class="dropdown icon"></i>
+        <div class="menu">
+          <a class="item" href="/zones">Areas</a>
+          <a class="item" href="/stakes">Units</a>
+          <div class="ui simple dropdown item">
+            Users <i class="dropdown icon"></i>
+            <div class="menu">
+              {{#each zones}}
+              <a class="zone item" href="/usersZone">{{name}}</a>
+              {{/each}}
+            </div>
+        </div>
+      </div>
+      </div>
+    {{/if}}
+      {{#if currentUser}}
+      <div class="right menu">
+        <div class="item">
+          <div class="ui primary button" name="logout">
+            Logout
+          </div>
+        </div>
+      </div>
+    {{/if}}
+    </div>
+    
+   <!--Menu That Shows On Mobile-->   
+    <div class="mobile only row">
+    <button class="mobile huge ui icon button" style="background: white;"><i class="content icon"></i></button>
+    <a class="computer header item">
+      California Fresno Mission
+    </a>
+    
+    <div class="right menu">
+      <div class="item">
+        <div class="ui primary button" name="logout">
+          Logout
+        </div>
+      </div>
+    </div>
+  </div>
+      
+   <!--Menu That Shows on Tablet-->
+      <div class="tablet only row">
+    <button class="mobile huge ui icon button" style="background: white;"><i class="sidebar icon"></i></button>
+    <a class="computer header item">
+      California Fresno Mission
+    </a>
+    <div class="right menu">
+      <div class="item">
+        <div class="ui primary button" name="logout">
+          Logout
+        </div>
+      </div>
+    </div>
+  </div>
+      
+   
+    
+      
+      
+      
+      
+      
+      
+      
+   </div>
+  {{/unless}}
+  
+  {{#if isInRole 'stakePresident'}}
+  <div class="ui borderless menu grid" style="border-radius: 0px;">
+      
+   <!--Desktop Menu-->   
+    <div class="computer only row">
+      <a class="computer header item">
+      California Fresno Mission
+    </a>
+    {{#if isActiveRoute 'progressRecord'}}
+    <a class="item active" href="/progressRecord">Progress Record</a>
+    {{else}}
+    <a class="item" href="/progressRecord">Progress Record</a> 
+    {{/if}}
+    {{#if isActiveRoute 'stakeCorrelation'}}
+    <a class="item active" href="/stakeCorrelation">Stake Correlation</a> 
+    {{else}}
+    <a class="item" href="/stakeCorrelation">Stake Correlation</a> 
+    {{/if}}
+
+      {{#if currentUser}}
+      <div class="right menu">
+        <div class="item">
+          <div class="ui primary button" name="logout">
+            Logout
+          </div>
+        </div>
+      </div>
+    {{/if}}
+    </div>
+    
+   <!--Menu That Shows On Mobile-->   
+    <div class="mobile only row">
+    <button class="mobile huge ui icon button" style="background: white;"><i class="content icon"></i></button>
+    <a class="computer header item">
+      California Fresno Mission
+    </a>
+    
+    <div class="right menu">
+      <div class="item">
+        <div class="ui primary button" name="logout">
+          Logout
+        </div>
+      </div>
+    </div>
+  </div>
+      
+   <!--Menu That Shows on Tablet-->
+      <div class="tablet only row">
+    <button class="mobile huge ui icon button" style="background: white;"><i class="sidebar icon"></i></button>
+    <a class="computer header item">
+      California Fresno Mission
+    </a>
+    <div class="right menu">
+      <div class="item">
+        <div class="ui primary button" name="logout">
+          Logout
+        </div>
+      </div>
+    </div>
+  </div>     
+      
+      
+      
+   </div>
+  {{/if}}
+  
+  {{#if isInRole 'ward'}}
+  <div class="ui borderless menu grid" style="border-radius: 0px;">
+      
+   <!--Desktop Menu-->   
+    <div class="computer only row">
+      <a class="computer header item">
+      California Fresno Mission
+    </a>
+
+      {{#if currentUser}}
+      <div class="right menu">
+        <div class="item">
+          <div class="ui primary button" name="logout">
+            Logout
+          </div>
+        </div>
+      </div>
+    {{/if}}
+    </div>
+    
+   <!--Menu That Shows On Mobile-->   
+    <div class="mobile only row">
+    <button class="mobile huge ui icon button" style="background: white;"><i class="content icon"></i></button>
+    <a class="computer header item">
+      California Fresno Mission
+    </a>
+    
+    <div class="right menu">
+      <div class="item">
+        <div class="ui primary button" name="logout">
+          Logout
+        </div>
+      </div>
+    </div>
+  </div>
+      
+   <!--Menu That Shows on Tablet-->
+      <div class="tablet only row">
+    <button class="mobile huge ui icon button" style="background: white;"><i class="sidebar icon"></i></button>
+    <a class="computer header item">
+      California Fresno Mission
+    </a>
+    <div class="right menu">
+      <div class="item">
+        <div class="ui primary button" name="logout">
+          Logout
+        </div>
+      </div>
+    </div>
+  </div>     
+      
+      
+      
+   </div>
+  {{/if}}
+</template>

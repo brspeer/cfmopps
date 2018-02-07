@@ -1,0 +1,55 @@
+<template name="districts">
+  <div class="ui container">
+    <div class="ui segment">
+    <h3 class="ui dividing header">Districts</h3>
+      <div class="ui hidden divider"></div>
+ 
+    <table class="ui very basic table">
+      <thead>
+        <tr>
+          <th data-field="id">District</th>
+          <th data-field="id">District Leader</th>
+          <th data-field="id">Zone</th>
+          <th data-field="id">Area</th>
+          <th data-field="id">Area</th>
+          <th data-field="id">Area</th>
+        </tr>
+      </thead>
+
+      <tbody>
+        {{#each districts}}
+        <tr>
+          {{> district}}
+        </tr>
+        {{/each}}
+      </tbody>
+    </table>
+      <!--
+     <div class="stackable three column ui grid container">
+  <div class="column">
+    <div class="ui segment container">
+      <div id="dragList1" class="ui middle aligned selection list" style="min-height: 10px;">
+        {{> dragList}}
+      </div>
+    </div>
+  </div>
+  <div class="column">
+    <div class="ui segment container">
+      <div id="dragList2" class="ui middle aligned selection list" style="min-height: 10px;">
+        {{> dragList}}
+      </div>
+    </div>
+  </div>
+  <div class="column">
+    <div class="ui segment container">
+      <div id="dragList3" class="ui middle aligned selection list" style="min-height: 10px;">
+        {{> dragList}}
+      </div>
+    </div>
+  </div>
+</div>
+    -->
+
+  </div>
+  </div>
+</template>

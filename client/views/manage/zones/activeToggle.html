@@ -1,0 +1,11 @@
+<template name="activeToggle">
+    <div class="ui toggle checkbox">
+      {{#if active}}
+      <input type="checkbox" id="active" name="{{name}}" tabindex="1" checked="">
+      <label></label>
+      {{else}}
+      <input type="checkbox" id="active" name="{{name}}" tabindex="0">
+      <label></label>
+      {{/if}}
+    </div>
+</template>
